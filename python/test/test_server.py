@@ -376,7 +376,6 @@ class TestServer(ga4gh.drs.test.DataRepositoryServiceTest):
         bundle = self.generate_bundle(object_ids=ids)
         self.request('CreateBundle', bundle=bundle)
         results = self.request('ListDataBundles', query={'alias': bundle.aliases[0]})
-        server_bdl = self.request('GetBundle', bundle_id=bundle.id).bundle
         self.assertEqual(len(results['data_bundles']), 1)
         results = self.request('ListDataObjects',  # by a unique checksum...
                                query={'checksum': bundle.checksums[0].checksum,
