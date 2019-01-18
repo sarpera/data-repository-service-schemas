@@ -381,9 +381,6 @@ class TestServer(ga4gh.drs.test.DataRepositoryServiceTest):
                                query={'checksum': bundle.checksums[0].checksum,
                                       'checksum_type': bundle.checksums[0].type})
         self.assertEqual(len(results['data_bundle']), 1)
-        results = self.request('ListDataBundle',  # and by a unique url..
-                               query={'url': bundle.urls[0].url})
-        self.assertEqual(len(results['data_bundles']), 1)
 
     def test_get_nonexistent_bundle(self):
         """Test querying GetBundle with a nonexistent data bundle."""
